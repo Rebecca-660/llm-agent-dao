@@ -1,0 +1,1 @@
+{"run_id": "smoke_20260822_202406", "model": "gpt-4o-mini", "temperature": 0, "timestamp": "20260822_202406", "prompt_file": "validation\\P01_C0_rendered.txt", "raw_output": "{\n  \"unstake_percentage\": 50,\n  \"reason\": \"I want to mitigate potential risks while still maintaining a significant stake in the platform.\"\n}"}

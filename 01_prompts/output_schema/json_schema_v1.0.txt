@@ -1,0 +1,7 @@
+{
+  "unstake_percentage": 50,
+  "reason": "One concise sentence explaining the main reason for the decision."
+}
+
+The value of "unstake_percentage" must be exactly one of: 0, 25, 50, 75, or 100.
+The value of "reason" must be one concise sentence explaining the main reason for the decision.

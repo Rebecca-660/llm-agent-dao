@@ -1,0 +1,1 @@
+{"run_id": "smoke_t3_20260822_203137", "model": "gpt-4o-mini", "temperature": 0, "timestamp": "20260822_203137", "prompt_file": "validation\\P01_all_arms\\P01_T3.txt", "raw_output": "{\n  \"unstake_percentage\": 50,\n  \"reason\": \"I want to reduce my exposure to the protocol while still maintaining some stake in case of recovery.\"\n}"}

@@ -1,0 +1,5 @@
+Earlier today, [ProtocolName], a DAO-governed blockchain platform, announced that one of its major protocol modules had suffered a smart-contract exploit. Approximately 15% of the protocol's total value locked was lost before the affected module was disabled. No further losses have been observed since the module was shut down.
+
+The affected module has historically generated a substantial share of the platform's activity and fee revenue. There is currently no evidence that the governance-token staking contract itself was compromised, and your staked tokens remain intact.
+
+The incident became public only recently. The governance-token price has not yet changed materially, and the broader cryptocurrency market is stable. The longer-term consequences for the platform's user growth, protocol revenue, security reputation, and future development remain uncertain.

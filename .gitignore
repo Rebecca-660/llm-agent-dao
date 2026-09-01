@@ -1,0 +1,14 @@
+# Local secrets
+.env
+
+# Python caches
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Third-party reference material (cite or provide a legal download source instead)
+1-Kazinnik (2026, Mgmt Sci).pdf
+
+# Duplicate naming-check screenshots; canonical copies are under 00_protocol/0B.2搜索截图/
+00_protocol/Drovaryn.png
+00_protocol/Kelmoryn.png
