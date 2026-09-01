@@ -1,0 +1,9 @@
+Several hours after the incident was made public, [ProtocolName] released the following statement:
+
+"We are aware of the incident that occurred today and are actively investigating the circumstances. We will provide another update within the next 24 hours."
+
+We continue to have confidence in the protocol's long-term security, future development, and capacity to keep serving its users.
+
+Additionally, we have begun an independent security review. We will publish a detailed post-mortem within 48 hours. Within seven days, we will submit a proposed security upgrade for DAO review, and the affected module will receive another independent audit before it is reactivated.
+
+Additionally, the core team has already moved a designated portion of its own treasury allocation into a publicly verifiable on-chain security reserve. This reserve may be used only for approved security audits and protocol remediation. Both the transaction and the reserve balance are publicly visible on-chain.

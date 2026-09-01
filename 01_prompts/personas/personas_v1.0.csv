@@ -1,0 +1,17 @@
+persona_id,holding_tenure,portfolio_exposure_percentage,portfolio_exposure_usd,governance_involvement,prior_incident_experience
+P01,6 months,10%,"$80,000",Passive holder,No prior experience
+P02,6 months,50%,"$16,000",Active voter,Previously experienced one
+P03,2 years,10%,"$80,000",Active voter,Previously experienced one
+P04,2 years,50%,"$16,000",Passive holder,No prior experience
+P05,6 months,10%,"$80,000",Passive holder,Previously experienced one
+P06,6 months,10%,"$80,000",Active voter,No prior experience
+P07,6 months,10%,"$80,000",Active voter,Previously experienced one
+P08,6 months,50%,"$16,000",Passive holder,No prior experience
+P09,6 months,50%,"$16,000",Passive holder,Previously experienced one
+P10,6 months,50%,"$16,000",Active voter,No prior experience
+P11,2 years,10%,"$80,000",Passive holder,No prior experience
+P12,2 years,10%,"$80,000",Passive holder,Previously experienced one
+P13,2 years,10%,"$80,000",Active voter,No prior experience
+P14,2 years,50%,"$16,000",Passive holder,Previously experienced one
+P15,2 years,50%,"$16,000",Active voter,No prior experience
+P16,2 years,50%,"$16,000",Active voter,Previously experienced one

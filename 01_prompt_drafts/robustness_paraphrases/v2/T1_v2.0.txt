@@ -1,0 +1,5 @@
+Several hours after the incident was made public, [ProtocolName] released the following statement:
+
+"We are aware of the incident that occurred today and are actively investigating the circumstances. We will provide another update within the next 24 hours."
+
+We continue to have confidence in the protocol's long-term security, future development, and capacity to keep serving its users.
