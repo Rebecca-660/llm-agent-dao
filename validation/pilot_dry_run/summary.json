@@ -1,0 +1,15 @@
+{
+  "run_id": "pilot_dry_run_v1",
+  "run_type": "pilot",
+  "run_mode": "dry_run",
+  "api_calls_made": 0,
+  "record_count": 48,
+  "unique_cell_count": 48,
+  "persona_count": 16,
+  "condition_counts": {
+    "S": 16,
+    "C0": 16,
+    "T3": 16
+  },
+  "all_independent_context": true
+}

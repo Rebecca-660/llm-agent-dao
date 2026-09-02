@@ -23,9 +23,15 @@ PERSONA_TEMPLATE_PATH = (
 COMMON_SHOCK_PATH = PROMPTS_ROOT / "common_shock" / "common_shock_v1.0.txt"
 TREATMENTS_ROOT = PROMPTS_ROOT / "treatments"
 OUTCOME_QUESTION_PATH = PROMPTS_ROOT / "outcome" / "outcome_question_v1.0.txt"
-OUTPUT_REQUIREMENT_PATH = (
-    PROMPTS_ROOT / "output_schema" / "json_schema_v1.0.txt"
-)
+OUTPUT_REQUIREMENT_PATHS = {
+    version: PROMPTS_ROOT / "output_schema" / f"json_schema_{version}.txt"
+    for version in ("v1.0", "v1.1")
+}
+DEFAULT_OUTPUT_REQUIREMENT_VERSION = "v1.0"
+# Backward-compatible alias for callers reproducing pre-v1.1 requests.
+OUTPUT_REQUIREMENT_PATH = OUTPUT_REQUIREMENT_PATHS[
+    DEFAULT_OUTPUT_REQUIREMENT_VERSION
+]
 
 TREATMENT_PATHS = {
     condition_id: TREATMENTS_ROOT / f"{condition_id}_v1.0.txt"
@@ -44,6 +50,17 @@ PERSONA_COLUMNS = {
 
 def read_text(path: Path) -> str:
     return path.read_text(encoding="utf-8")
+
+
+def get_output_requirement_path(version: str) -> Path:
+    try:
+        return OUTPUT_REQUIREMENT_PATHS[version]
+    except KeyError as error:
+        allowed = ", ".join(OUTPUT_REQUIREMENT_PATHS)
+        raise ValueError(
+            f"Unknown output requirement version {version!r}; "
+            f"expected one of: {allowed}"
+        ) from error
 
 
 def load_final_protocol_name(
@@ -76,7 +93,10 @@ def substitute_protocol_name(template: str, protocol_name: str) -> str:
 
 
 def assemble_prompt(
-    persona_row: Mapping[str, str], condition_id: str
+    persona_row: Mapping[str, str],
+    condition_id: str,
+    *,
+    output_requirement_version: str = DEFAULT_OUTPUT_REQUIREMENT_VERSION,
 ) -> str:
     missing_columns = PERSONA_COLUMNS.difference(persona_row)
     if missing_columns:
@@ -91,12 +111,15 @@ def assemble_prompt(
             f"Unknown treatment condition {condition_id!r}; expected one of: {allowed}"
         ) from error
 
+    output_requirement_path = get_output_requirement_path(
+        output_requirement_version
+    )
     components = (
         read_text(PERSONA_TEMPLATE_PATH),
         read_text(COMMON_SHOCK_PATH),
         read_text(treatment_path),
         read_text(OUTCOME_QUESTION_PATH),
-        read_text(OUTPUT_REQUIREMENT_PATH),
+        read_text(output_requirement_path),
     )
     assembled_template = "\n\n".join(components)
     return substitute_protocol_name(

@@ -1,0 +1,92 @@
+{
+  "scope": {
+    "source_file": "03_raw_outputs/pilot/pilot_20260901T101427Z_d4d53cb9.jsonl",
+    "source_file_sha256": "666e8142b5f80260bd384aca86f88614cc5257cd4addbfc5cf379e63c2a3c1e3",
+    "run_ids": [
+      "pilot_20260901T101427Z_d4d53cb9"
+    ],
+    "record_count": 48,
+    "run_type_values": [
+      "pilot"
+    ],
+    "excluded_non_pilot_files": true
+  },
+  "classification_rule": {
+    "valid_non_refusal": "successful non-empty response; parser success; allowed percentage; non-empty reason; no match to the explicit-refusal regex",
+    "explicit_refusal_regex": "\\b(?:i\\s+(?:cannot|can't|am unable to|refuse to|won't|will not)\\s+(?:make|provide|choose|decide|comply)|as an ai)\\b",
+    "note": "Human judgments are required only for the prespecified sampled records."
+  },
+  "checks": {
+    "cell_completeness_and_isolation": {
+      "threshold": "Exactly 48 unique P01-P16 x S/C0/T3 cells; one Pilot run_id; pilot records only; independent contexts",
+      "observed": {
+        "records": 48,
+        "unique_cells": 48,
+        "arm_counts": {
+          "C0": 16,
+          "S": 16,
+          "T3": 16
+        },
+        "missing_cells": [],
+        "duplicate_cells": [],
+        "unexpected_cells": [],
+        "run_ids": [
+          "pilot_20260901T101427Z_d4d53cb9"
+        ],
+        "all_run_type_pilot": true,
+        "all_independent_context": true,
+        "all_previous_response_id_null": true
+      },
+      "pass": true
+    },
+    "c0_mean_dynamic_range": {
+      "threshold": "15 <= C0 mean <= 75 among valid non-refusals",
+      "observed": {
+        "valid_c0_n": 16,
+        "mean": 50.0
+      },
+      "pass": true
+    },
+    "c0_response_category_diversity": {
+      "threshold": "At least 3 distinct categories among valid non-refusal C0 responses",
+      "observed": {
+        "distinct_count": 1,
+        "categories": [
+          50
+        ]
+      },
+      "pass": false
+    },
+    "combined_category_concentration": {
+      "threshold": "No category share > 0.85 among pooled valid non-refusals",
+      "observed": {
+        "pooled_valid_n": 48,
+        "category_counts": {
+          "50": 48
+        },
+        "maximum_category_share": 1.0
+      },
+      "pass": false
+    },
+    "structured_output_validity": {
+      "threshold": "At least 46 of 48 valid non-refusal responses",
+      "observed": {
+        "api_error": 0,
+        "empty_response": 0,
+        "parse_failure": 0,
+        "schema_invalid": 0,
+        "explicit_refusal_screen": 0,
+        "valid_non_refusal": 48,
+        "denominator": 48
+      },
+      "pass": true
+    }
+  },
+  "not_assessed": [
+    "treatment-effect direction or ordering",
+    "statistical significance",
+    "minimum treatment-effect size",
+    "final researcher Pilot decision",
+    "human hallucination and T3-comprehension criteria (pending review)"
+  ]
+}

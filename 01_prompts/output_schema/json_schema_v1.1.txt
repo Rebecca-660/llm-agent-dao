@@ -1,0 +1,8 @@
+Return only one valid JSON object and no other text.
+
+The JSON object must contain exactly these two fields:
+
+- "unstake_percentage": choose exactly one integer from the allowed set 0, 25, 50, 75, or 100.
+- "reason": provide one non-empty concise sentence explaining the main reason for the decision.
+
+Do not include any additional fields, commentary, Markdown, or code fences.

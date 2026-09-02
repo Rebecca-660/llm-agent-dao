@@ -1,0 +1,44 @@
+{
+    "old_manifest":  "validation/pilot_dry_run/pilot_requests.jsonl",
+    "new_manifest":  "validation/pilot_v1.1_dry_run/pilot_requests.jsonl",
+    "old_record_count":  48,
+    "new_record_count":  48,
+    "new_unique_cell_count":  48,
+    "condition_counts":  {
+                             "S":  16,
+                             "C0":  16,
+                             "T3":  16
+                         },
+    "output_requirement_version_values":  [
+                                              "v1.1"
+                                          ],
+    "output_requirement_path_values":  [
+                                           "01_prompts/output_schema/json_schema_v1.1.txt"
+                                       ],
+    "model_values":  [
+                         "gpt-4o-mini"
+                     ],
+    "temperature_values":  [
+                               0
+                           ],
+    "answer_order_values":  [
+                                "canonical_ascending"
+                            ],
+    "placeholder_cells":  [
+
+                          ],
+    "completed_numeric_example_cells":  [
+
+                                        ],
+    "same_cell_prefix_identical_after_removing_versioned_output_requirement":  48,
+    "source_hashes_only_output_requirement_version_changed":  48,
+    "prompt_hashes_valid":  48,
+    "system_prompt_hashes_valid":  48,
+    "all_source_hashes_valid":  48,
+    "api_calls_made":  0,
+    "rendered_sample_cells":  [
+                                  "P01_S",
+                                  "P01_C0",
+                                  "P01_T3"
+                              ]
+}

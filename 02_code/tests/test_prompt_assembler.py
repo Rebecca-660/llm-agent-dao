@@ -10,13 +10,16 @@ sys.path.insert(0, str(PROJECT_ROOT / "02_code"))
 
 from prompt_assembler import (
     COMMON_SHOCK_PATH,
+    DEFAULT_OUTPUT_REQUIREMENT_VERSION,
     OUTCOME_QUESTION_PATH,
     OUTPUT_REQUIREMENT_PATH,
+    OUTPUT_REQUIREMENT_PATHS,
     PERSONA_TEMPLATE_PATH,
     PROTOCOL_NAME_DECISION_PATH,
     PROTOCOL_NAME_PLACEHOLDER,
     TREATMENT_PATHS,
     assemble_prompt,
+    get_output_requirement_path,
     load_final_protocol_name,
     read_text,
     substitute_protocol_name,
@@ -33,13 +36,16 @@ PERSONA_ROW = {
 }
 
 
-def raw_assembled_template(condition_id: str) -> str:
+def raw_assembled_template(
+    condition_id: str,
+    output_requirement_version: str = DEFAULT_OUTPUT_REQUIREMENT_VERSION,
+) -> str:
     components = (
         read_text(PERSONA_TEMPLATE_PATH),
         read_text(COMMON_SHOCK_PATH),
         read_text(TREATMENT_PATHS[condition_id]),
         read_text(OUTCOME_QUESTION_PATH),
-        read_text(OUTPUT_REQUIREMENT_PATH),
+        read_text(get_output_requirement_path(output_requirement_version)),
     )
     return "\n\n".join(components)
 
@@ -77,3 +83,39 @@ def test_unresolved_bracket_placeholder_is_rejected() -> None:
 
     with pytest.raises(ValueError, match=r"\[OtherName\]"):
         substitute_protocol_name(template, protocol_name)
+
+
+@pytest.mark.parametrize("version", tuple(OUTPUT_REQUIREMENT_PATHS))
+def test_assembly_selects_exact_output_requirement_version(
+    version: str,
+) -> None:
+    condition_id = "C0"
+    raw_template = raw_assembled_template(condition_id, version)
+    expected = raw_template.replace(
+        PROTOCOL_NAME_PLACEHOLDER, load_final_protocol_name()
+    )
+
+    actual = assemble_prompt(
+        PERSONA_ROW,
+        condition_id,
+        output_requirement_version=version,
+    )
+
+    assert actual == expected
+    assert actual.endswith(read_text(OUTPUT_REQUIREMENT_PATHS[version]))
+
+
+def test_default_assembly_remains_v1_0_for_historical_callers() -> None:
+    assert OUTPUT_REQUIREMENT_PATH == OUTPUT_REQUIREMENT_PATHS["v1.0"]
+    assert assemble_prompt(PERSONA_ROW, "S") == assemble_prompt(
+        PERSONA_ROW, "S", output_requirement_version="v1.0"
+    )
+
+
+def test_unknown_output_requirement_version_is_rejected() -> None:
+    with pytest.raises(ValueError, match="Unknown output requirement version"):
+        assemble_prompt(
+            PERSONA_ROW,
+            "S",
+            output_requirement_version="v9.9",
+        )

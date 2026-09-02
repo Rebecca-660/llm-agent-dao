@@ -8,6 +8,12 @@
 4. 除非某一步明确授权，否则不得修改 `01_prompts/`、覆盖 raw outputs 或调用 API。
 5. 涉及实验措辞、Pilot 判定和冻结的步骤，必须由研究者人工确认。
 
+## 当前状态（Endpoint Pilot 修复分支）
+
+首轮 48-call Endpoint Pilot 已完成，但预注册的 C0 类别多样性和合并类别集中度检查未通过；48 条回答均为 50%。在研究者作出新的 Pilot 通过决定前，不得进入 Gate F 冻结或 Gate G Main Run。
+
+当前请暂停本文件原有的 E5 → F1 路径，改按根目录的 `PILOT_REMEDIATION_PROMPT_FLOW.md` 逐步执行。该分支完成并由研究者批准新 Pilot 后，再返回 Gate F。
+
 ---
 
 ## Gate A：修复 Phase 1–8 的遗留问题
