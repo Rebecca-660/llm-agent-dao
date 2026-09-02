@@ -6,6 +6,13 @@ __pycache__/
 *.pyc
 .pytest_cache/
 
+# Word reference documents (not version-controlled / not pushed)
+*.docx
+*.doc
+*.pptx
+*.ppt
+*.pdf
+
 # Third-party reference material (cite or provide a legal download source instead)
 1-Kazinnik (2026, Mgmt Sci).pdf
 
