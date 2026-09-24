@@ -1,0 +1,5 @@
+contrast,first_arm,second_arm,complete_pair_n,omitted_persona_ids,mean_difference,median_difference,minimum_difference,maximum_difference,negative_count,zero_count,positive_count,negative_proportion,zero_proportion,positive_proportion,exact_two_sided_p_value
+C0-S,C0,S,15,P11,3.3333333333333335,0,-25,25,1,11,3,0.06666666666666667,0.7333333333333333,0.2,0.625
+T1-C0,T1,C0,16,,-6.25,0.0,-25,25,5,10,1,0.3125,0.625,0.0625,0.21875
+T2-T1,T2,T1,16,,-1.5625,0.0,-25,25,2,13,1,0.125,0.8125,0.0625,1.0
+T3-T2,T3,T2,16,,-7.8125,0.0,-25,0,5,11,0,0.3125,0.6875,0.0,0.0625

@@ -1,0 +1,176 @@
+{
+  "analysis_status": "complete",
+  "analysis_scope": "prespecified minimum scope",
+  "run_id": "main_20260904T160520Z_d93b455f",
+  "pilot_data_included": false,
+  "exploratory_analyses_included": false,
+  "arm_summaries": [
+    {
+      "arm": "S",
+      "planned_n": 16,
+      "valid_n": 15,
+      "missing_n": 1,
+      "mean_unstake_percentage": 21.666666666666668,
+      "median_unstake_percentage": 25,
+      "any_unstake_count": 13,
+      "any_unstake_rate": 0.8666666666666667
+    },
+    {
+      "arm": "C0",
+      "planned_n": 16,
+      "valid_n": 16,
+      "missing_n": 0,
+      "mean_unstake_percentage": 25.0,
+      "median_unstake_percentage": 25.0,
+      "any_unstake_count": 15,
+      "any_unstake_rate": 0.9375
+    },
+    {
+      "arm": "T1",
+      "planned_n": 16,
+      "valid_n": 16,
+      "missing_n": 0,
+      "mean_unstake_percentage": 18.75,
+      "median_unstake_percentage": 25.0,
+      "any_unstake_count": 11,
+      "any_unstake_rate": 0.6875
+    },
+    {
+      "arm": "T2",
+      "planned_n": 16,
+      "valid_n": 16,
+      "missing_n": 0,
+      "mean_unstake_percentage": 17.1875,
+      "median_unstake_percentage": 25.0,
+      "any_unstake_count": 11,
+      "any_unstake_rate": 0.6875
+    },
+    {
+      "arm": "T3",
+      "planned_n": 16,
+      "valid_n": 16,
+      "missing_n": 0,
+      "mean_unstake_percentage": 9.375,
+      "median_unstake_percentage": 0.0,
+      "any_unstake_count": 6,
+      "any_unstake_rate": 0.375
+    }
+  ],
+  "contrasts": [
+    {
+      "contrast": "C0-S",
+      "first_arm": "C0",
+      "second_arm": "S",
+      "complete_pair_n": 15,
+      "omitted_persona_ids": "P11",
+      "mean_difference": 3.3333333333333335,
+      "median_difference": 0,
+      "minimum_difference": -25,
+      "maximum_difference": 25,
+      "negative_count": 1,
+      "zero_count": 11,
+      "positive_count": 3,
+      "negative_proportion": 0.06666666666666667,
+      "zero_proportion": 0.7333333333333333,
+      "positive_proportion": 0.2,
+      "exact_two_sided_p_value": 0.625
+    },
+    {
+      "contrast": "T1-C0",
+      "first_arm": "T1",
+      "second_arm": "C0",
+      "complete_pair_n": 16,
+      "omitted_persona_ids": "",
+      "mean_difference": -6.25,
+      "median_difference": 0.0,
+      "minimum_difference": -25,
+      "maximum_difference": 25,
+      "negative_count": 5,
+      "zero_count": 10,
+      "positive_count": 1,
+      "negative_proportion": 0.3125,
+      "zero_proportion": 0.625,
+      "positive_proportion": 0.0625,
+      "exact_two_sided_p_value": 0.21875
+    },
+    {
+      "contrast": "T2-T1",
+      "first_arm": "T2",
+      "second_arm": "T1",
+      "complete_pair_n": 16,
+      "omitted_persona_ids": "",
+      "mean_difference": -1.5625,
+      "median_difference": 0.0,
+      "minimum_difference": -25,
+      "maximum_difference": 25,
+      "negative_count": 2,
+      "zero_count": 13,
+      "positive_count": 1,
+      "negative_proportion": 0.125,
+      "zero_proportion": 0.8125,
+      "positive_proportion": 0.0625,
+      "exact_two_sided_p_value": 1.0
+    },
+    {
+      "contrast": "T3-T2",
+      "first_arm": "T3",
+      "second_arm": "T2",
+      "complete_pair_n": 16,
+      "omitted_persona_ids": "",
+      "mean_difference": -7.8125,
+      "median_difference": 0.0,
+      "minimum_difference": -25,
+      "maximum_difference": 0,
+      "negative_count": 5,
+      "zero_count": 11,
+      "positive_count": 0,
+      "negative_proportion": 0.3125,
+      "zero_proportion": 0.6875,
+      "positive_proportion": 0.0,
+      "exact_two_sided_p_value": 0.0625
+    }
+  ],
+  "sign_flip_tests": [
+    {
+      "contrast": "C0-S",
+      "n": 15,
+      "observed_absolute_mean_difference": 3.3333333333333335,
+      "number_of_sign_assignments": 32768,
+      "extreme_or_equal_assignments": 20480,
+      "exact_two_sided_p_value": 0.625,
+      "equality_included": true,
+      "zero_differences_included": true
+    },
+    {
+      "contrast": "T1-C0",
+      "n": 16,
+      "observed_absolute_mean_difference": 6.25,
+      "number_of_sign_assignments": 65536,
+      "extreme_or_equal_assignments": 14336,
+      "exact_two_sided_p_value": 0.21875,
+      "equality_included": true,
+      "zero_differences_included": true
+    },
+    {
+      "contrast": "T2-T1",
+      "n": 16,
+      "observed_absolute_mean_difference": 1.5625,
+      "number_of_sign_assignments": 65536,
+      "extreme_or_equal_assignments": 65536,
+      "exact_two_sided_p_value": 1.0,
+      "equality_included": true,
+      "zero_differences_included": true
+    },
+    {
+      "contrast": "T3-T2",
+      "n": 16,
+      "observed_absolute_mean_difference": 7.8125,
+      "number_of_sign_assignments": 65536,
+      "extreme_or_equal_assignments": 4096,
+      "exact_two_sided_p_value": 0.0625,
+      "equality_included": true,
+      "zero_differences_included": true
+    }
+  ],
+  "population_inference_warning": "Fixed persona profiles are not a random sample of real investors."
+}

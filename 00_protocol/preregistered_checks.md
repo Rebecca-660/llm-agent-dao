@@ -86,11 +86,21 @@ The sampling procedure is fixed as follows:
 
 1. Use only the single completed Endpoint Pilot run identified by its Pilot `run_id`.
 2. Within each arm, sort the 16 records by `persona_id` in ascending order (`P01` through `P16`).
-3. In Python 3.11, initialize an independent `random.Random(20260901)` instance for each arm.
+3. In Python 3.14.4, initialize an independent `random.Random(20260901)` instance for each arm.
 4. Apply `sample(sorted_arm_records, 4)` once within each arm.
 5. Preserve the selected IDs and sampling script/output as part of the Pilot review archive.
 
 No sampled record may be replaced because its content is inconvenient, invalid, surprising, or inconsistent with the hypothesis. Invalid or refused sampled records remain in the human-review package and are evaluated as observed.
+
+### Runtime-version implementation amendment
+
+- Amendment date: `2026-09-03`
+- Timing: after completion of the GLM-4.7 Pilot but before generation or inspection of the fixed-seed manual-review sample
+- Original runtime entry: Python `3.11`
+- Amended runtime entry: Python `3.14.4`, the Python runtime already installed in the research environment
+- Researcher instruction: use the locally installed runtime rather than downloading a separate Python runtime
+
+This amendment changes only the declared Python runtime used to execute the already-fixed sampling procedure. It does not change the seed (`20260901`), independent-per-arm initialization, ascending persona sort, sample size, arm allocation, non-replacement rule, human thresholds, or any Pilot response. The exact candidate lists, selected IDs, runtime version, and sampling output must be preserved so the realized sample remains directly auditable. The amendment was not motivated by treatment ordering, significance, effect size, or any sampled response because the sample had not yet been generated.
 
 ## Human-review criteria
 

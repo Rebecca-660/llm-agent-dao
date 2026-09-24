@@ -1,0 +1,6 @@
+arm,planned_n,valid_n,missing_n,mean_unstake_percentage,median_unstake_percentage,any_unstake_count,any_unstake_rate
+S,16,15,1,21.666666666666668,25,13,0.8666666666666667
+C0,16,16,0,25.0,25.0,15,0.9375
+T1,16,16,0,18.75,25.0,11,0.6875
+T2,16,16,0,17.1875,25.0,11,0.6875
+T3,16,16,0,9.375,0.0,6,0.375

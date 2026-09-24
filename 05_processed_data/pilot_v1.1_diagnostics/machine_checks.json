@@ -1,0 +1,119 @@
+{
+  "generated_at": "2026-09-03T07:37:52.491542+00:00",
+  "generator_python": "3.14.4",
+  "selected_run_id": "pilot_20260903T055848Z_a5ef2915",
+  "selected_raw_path": "03_raw_outputs/pilot/pilot_20260903T055848Z_a5ef2915.jsonl",
+  "selected_raw_sha256": "5ee208decea0755a278d93f87ab6835ff09fe727c313a686802172e16bae5704",
+  "historical_input_isolation": [
+    {
+      "path": "03_raw_outputs/pilot/pilot_20260901T101427Z_d4d53cb9.jsonl",
+      "sha256": "666e8142b5f80260bd384aca86f88614cc5257cd4addbfc5cf379e63c2a3c1e3",
+      "selected_for_calculation": false
+    },
+    {
+      "path": "03_raw_outputs/pilot/pilot_20260903T014531Z_1ab7dbe1.jsonl",
+      "sha256": "6a787357d8914c0f432d3023db9c2bef51bdfe5227e36e4eec5329acd308198b",
+      "selected_for_calculation": false
+    },
+    {
+      "path": "03_raw_outputs/pilot/pilot_20260903T055848Z_a5ef2915.jsonl",
+      "sha256": "5ee208decea0755a278d93f87ab6835ff09fe727c313a686802172e16bae5704",
+      "selected_for_calculation": true
+    }
+  ],
+  "checks": [
+    {
+      "criterion": 1,
+      "name": "Cell completeness and isolation",
+      "threshold": "Exactly 48 unique P01-P16 x S/C0/T3 cells from one run; run_type=pilot",
+      "observed": {
+        "records": 48,
+        "unique_cells": 48,
+        "condition_counts": {
+          "S": 16,
+          "C0": 16,
+          "T3": 16
+        },
+        "missing_cells": [],
+        "duplicate_cells": [],
+        "unexpected_cells": [],
+        "run_ids": [
+          "pilot_20260903T055848Z_a5ef2915"
+        ],
+        "run_types": [
+          "pilot"
+        ]
+      },
+      "result": "PASS"
+    },
+    {
+      "criterion": 2,
+      "name": "C0 mean dynamic range",
+      "threshold": "15 <= mean <= 75 among valid non-refusal C0 responses",
+      "observed": {
+        "valid_n": 16,
+        "mean": 3.125
+      },
+      "result": "FAIL"
+    },
+    {
+      "criterion": 3,
+      "name": "C0 response-category diversity",
+      "threshold": "At least 3 distinct categories among valid non-refusal C0 responses",
+      "observed": {
+        "valid_n": 16,
+        "distinct_categories": 2,
+        "category_counts": {
+          "0": 14,
+          "25": 2
+        }
+      },
+      "result": "FAIL"
+    },
+    {
+      "criterion": 4,
+      "name": "Combined category concentration",
+      "threshold": "Maximum single-category share <= 0.85 among pooled valid non-refusal responses",
+      "observed": {
+        "valid_n": 46,
+        "category_counts": {
+          "0": 42,
+          "25": 4
+        },
+        "maximum_category": 0,
+        "maximum_count": 42,
+        "maximum_share": 0.9130434782608695
+      },
+      "result": "FAIL"
+    },
+    {
+      "criterion": 5,
+      "name": "Structured-output validity",
+      "threshold": "At least 46 of all 48 planned responses valid and non-refusal",
+      "observed": {
+        "valid_non_refusal": 46,
+        "denominator": 48,
+        "rate": 0.9583333333333334,
+        "parse_failure_count": 2,
+        "refusal_candidate_count": 0,
+        "api_error_count": 0,
+        "empty_response_count": 0
+      },
+      "result": "PASS"
+    }
+  ],
+  "parse_failures": [
+    {
+      "cell_id": "P02_S",
+      "error": "Invalid JSON: Invalid control character at: line 3 column 233 (char 262)"
+    },
+    {
+      "cell_id": "P11_T3",
+      "error": "Invalid JSON: Expecting property name enclosed in double quotes: line 2 column 1 (char 2)"
+    }
+  ],
+  "refusal_candidates": [],
+  "api_errors": [],
+  "empty_responses": [],
+  "decision_boundary": "Machine results do not constitute the researcher's final Pilot decision and do not authorize freeze or a main run."
+}

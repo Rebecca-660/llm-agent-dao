@@ -1,0 +1,28 @@
+{
+  "run_id": "main_dry_run_v1.2",
+  "run_type": "main",
+  "run_mode": "dry_run",
+  "api_calls_made": 0,
+  "record_count": 80,
+  "unique_cell_count": 80,
+  "persona_count": 16,
+  "condition_counts": {
+    "S": 16,
+    "C0": 16,
+    "T1": 16,
+    "T2": 16,
+    "T3": 16
+  },
+  "provider": "zhipu",
+  "model": "glm-4.7",
+  "decoding_regime": "stochastic_low_v1.2",
+  "do_sample": true,
+  "temperature": 0.2,
+  "thinking_mode": "disabled",
+  "persona_template_version": "v1.1",
+  "output_requirement_version": "v1.1",
+  "answer_order": "canonical_ascending",
+  "all_independent_context": true,
+  "freeze_record_sha256": "bea04e9ab21cc74f08bcad76ecd087715e1b3225cf122be4b1a0c513e0a9bbf3",
+  "main_runner_sha256": "28c531ab73b659e38a298fb45aa3666d3924010c897f48d1d524f76492ea241e"
+}

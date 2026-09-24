@@ -1,0 +1,50 @@
+{
+  "result": "PASS",
+  "api_calls_made": 0,
+  "checks": {
+    "api_calls_zero": true,
+    "matrix_complete": true,
+    "fresh_frozen_build_identical": true,
+    "no_unresolved_placeholders": true,
+    "strict_two_field_parser": true,
+    "main_runner_hash_recorded": true,
+    "main_output_isolated": true
+  },
+  "record_count": 80,
+  "unique_cell_count": 80,
+  "condition_counts": {
+    "S": 16,
+    "C0": 16,
+    "T1": 16,
+    "T2": 16,
+    "T3": 16
+  },
+  "freeze_record_sha256": "bea04e9ab21cc74f08bcad76ecd087715e1b3225cf122be4b1a0c513e0a9bbf3",
+  "main_runner_sha256": "28c531ab73b659e38a298fb45aa3666d3924010c897f48d1d524f76492ea241e",
+  "parser_sha256": "2dca4a6e41f5b153d89473711ad970ae6007180c67e1040427ce64bb1bf6b6f9",
+  "verified_frozen_sha256": {
+    "00_protocol/protocol_name_decision.md": "54db1d54c481ae31478ea2243b165ff3acbc978a0d8c3e059b74587a0e083eea",
+    "01_prompts/personas/personas_v1.0.csv": "4e1a87fd42ca8f1d038e64fb181d0b353b85940026405af35a35856218822c08",
+    "01_prompts/personas/persona_template_v1.1.txt": "3a3ed734a4297e5ba4d99753f15e8b53753318d6e8c2403070f72b015060d7ae",
+    "01_prompts/system/system_prompt_v1.0.txt": "8ca11289c6e751c39d52959bc926a488ecd800522048dd88595cd58c3b3e16d8",
+    "01_prompts/common_shock/common_shock_v1.0.txt": "266cb9d1177668f3c30a442925204133ce20ba7401fbba04d6cf2afb1ee4c360",
+    "01_prompts/treatments/S_v1.0.txt": "295aa52c277f90bdaee33759c4bc124b3c74df097fa53e3ff6eec62fa53a5f56",
+    "01_prompts/treatments/C0_v1.0.txt": "e4e6cb2a7dc47d496ee329389fb3cabae5c2e001cea8b13801ac0f7701ba8669",
+    "01_prompts/treatments/T1_v1.0.txt": "1b715d421b0f82f02b048277e6dba458f5c61c8d8c3f0532128846ec6ab4a382",
+    "01_prompts/treatments/T2_v1.0.txt": "dd34ab4453a1d8dae8a69cbab682f787fe84e23a92d9920877e93ba17eb2440e",
+    "01_prompts/treatments/T3_v1.0.txt": "b53b07c49c37b630cdcab82ebdb57d7794b07bc3b8452a25982f3b8a5a4bd860",
+    "01_prompts/outcome/outcome_question_v1.0.txt": "f5c2c352155aa4aadf9c08443fe81ffd19c1d503e19437b714c253fd22828fff",
+    "01_prompts/output_schema/json_schema_v1.1.txt": "7ca5b6896c2e115d99d7edc8314899d95669e0fb0e919c96472074840d509452",
+    "02_code/prompt_assembler.py": "5192affbc4f7390d6921be59ecb21fd583187cb3c8fba6bf3dafb08ee6671324",
+    "02_code/parser.py": "2dca4a6e41f5b153d89473711ad970ae6007180c67e1040427ce64bb1bf6b6f9",
+    "02_code/run_endpoint_pilot.py": "bfc97548438b0c6db51e407adb29db48d3a94d1358af970bb771b5850f8e9106",
+    "02_code/run_main_run.py": "28c531ab73b659e38a298fb45aa3666d3924010c897f48d1d524f76492ea241e"
+  },
+  "unexpected_differences": {},
+  "placeholder_cells": [],
+  "strict_parser_probe": {
+    "success": false,
+    "data": null,
+    "error": "Unexpected field(s): extra. Exactly two fields are required."
+  }
+}

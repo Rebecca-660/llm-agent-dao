@@ -36,7 +36,7 @@ def test_invalid_unstake_value_30_is_rejected_with_allowed_values() -> None:
     assert "0, 25, 50, 75, or 100" in result["error"]
 
 
-def test_extra_field_is_ignored_and_required_fields_are_extracted() -> None:
+def test_extra_field_is_rejected_to_enforce_exactly_two_fields() -> None:
     raw_response = json.dumps(
         {
             "unstake_percentage": 50,
@@ -47,11 +47,11 @@ def test_extra_field_is_ignored_and_required_fields_are_extracted() -> None:
 
     result = parse_response(raw_response)
 
-    assert result["success"] is True
-    assert result["data"] == {
-        "unstake_percentage": 50,
-        "reason": "Risk remains uncertain.",
-    }
+    assert result["success"] is False
+    assert result["data"] is None
+    assert result["error"] == (
+        "Unexpected field(s): debug. Exactly two fields are required."
+    )
 
 
 def test_missing_required_reason_field_is_rejected() -> None:

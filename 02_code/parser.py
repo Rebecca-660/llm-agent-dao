@@ -47,6 +47,15 @@ def parse_response(raw_response: str) -> dict[str, Any]:
             "error": f"Missing required field(s): {missing}.",
         }
 
+    unexpected_fields = set(parsed).difference(REQUIRED_FIELDS)
+    if unexpected_fields:
+        unexpected = ", ".join(sorted(unexpected_fields))
+        return {
+            "success": False,
+            "data": None,
+            "error": f"Unexpected field(s): {unexpected}. Exactly two fields are required.",
+        }
+
     unstake_percentage = parsed["unstake_percentage"]
     if (
         isinstance(unstake_percentage, bool)

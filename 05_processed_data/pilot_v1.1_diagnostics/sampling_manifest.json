@@ -1,0 +1,91 @@
+{
+  "generated_at": "2026-09-03T07:37:52.491542+00:00",
+  "selected_run_id": "pilot_20260903T055848Z_a5ef2915",
+  "raw_sha256": "5ee208decea0755a278d93f87ab6835ff09fe727c313a686802172e16bae5704",
+  "python_implementation": "CPython",
+  "python_version": "3.14.4",
+  "seed": 20260901,
+  "procedure": "For each arm independently: sort by persona_id ascending, initialize random.Random(20260901), then call sample(pool, 4) once.",
+  "replacement_permitted": false,
+  "arms": {
+    "S": {
+      "candidate_cell_ids_in_sort_order": [
+        "P01_S",
+        "P02_S",
+        "P03_S",
+        "P04_S",
+        "P05_S",
+        "P06_S",
+        "P07_S",
+        "P08_S",
+        "P09_S",
+        "P10_S",
+        "P11_S",
+        "P12_S",
+        "P13_S",
+        "P14_S",
+        "P15_S",
+        "P16_S"
+      ],
+      "selected_cell_ids_in_draw_order": [
+        "P15_S",
+        "P01_S",
+        "P14_S",
+        "P09_S"
+      ]
+    },
+    "C0": {
+      "candidate_cell_ids_in_sort_order": [
+        "P01_C0",
+        "P02_C0",
+        "P03_C0",
+        "P04_C0",
+        "P05_C0",
+        "P06_C0",
+        "P07_C0",
+        "P08_C0",
+        "P09_C0",
+        "P10_C0",
+        "P11_C0",
+        "P12_C0",
+        "P13_C0",
+        "P14_C0",
+        "P15_C0",
+        "P16_C0"
+      ],
+      "selected_cell_ids_in_draw_order": [
+        "P15_C0",
+        "P01_C0",
+        "P14_C0",
+        "P09_C0"
+      ]
+    },
+    "T3": {
+      "candidate_cell_ids_in_sort_order": [
+        "P01_T3",
+        "P02_T3",
+        "P03_T3",
+        "P04_T3",
+        "P05_T3",
+        "P06_T3",
+        "P07_T3",
+        "P08_T3",
+        "P09_T3",
+        "P10_T3",
+        "P11_T3",
+        "P12_T3",
+        "P13_T3",
+        "P14_T3",
+        "P15_T3",
+        "P16_T3"
+      ],
+      "selected_cell_ids_in_draw_order": [
+        "P15_T3",
+        "P01_T3",
+        "P14_T3",
+        "P09_T3"
+      ]
+    }
+  },
+  "selected_count": 12
+}

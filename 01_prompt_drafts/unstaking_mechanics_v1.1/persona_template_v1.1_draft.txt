@@ -1,0 +1,14 @@
+You have held governance tokens in this platform for {holding_tenure}.
+
+Your current staked governance-token position is worth $8,000. This position represents {portfolio_exposure_percentage} of your total crypto portfolio, which is worth {portfolio_exposure_usd}.
+
+Your governance involvement is: {governance_involvement}.
+
+Your prior experience with a major crypto incident is: {prior_incident_experience}.
+
+80% of your governance tokens in this platform are currently staked. The staking APY is 6%. Initiating unstaking starts a 7-day waiting period and carries no additional penalty. Tokens selected for unstaking remain locked during this period and become unstaked only after the 7-day waiting period ends.
+
+The broader crypto market has not experienced significant movement today. Your personal liquidity needs have not changed. The incident has just occurred, and the governance-token price has not yet changed materially.
+
+You are a retail cryptocurrency investor, not a professional trader,
+smart-contract developer, or blockchain security researcher.

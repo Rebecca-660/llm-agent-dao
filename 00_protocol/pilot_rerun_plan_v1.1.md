@@ -121,9 +121,11 @@ Network timeouts, rate limits, and server errors may follow the existing fixed r
 - Seed: `20260901`.
 - Use only the single completed v1.1 Pilot run identified by its new `run_id`.
 - Within each arm, sort records by `persona_id` ascending from P01 to P16.
-- In Python 3.11, initialize an independent `random.Random(20260901)` instance for each arm and call `sample(sorted_arm_records, 4)` once.
+- In Python 3.14.4, initialize an independent `random.Random(20260901)` instance for each arm and call `sample(sorted_arm_records, 4)` once.
 - Preserve selected IDs and reproducibility evidence.
 - Never replace a sampled record because it is invalid, refused, inconvenient, surprising, or inconsistent with a hypothesis.
+
+The runtime-version amendment recorded in `00_protocol/preregistered_checks.md` on `2026-09-03` applies here: Python `3.14.4` replaces the originally named Python `3.11` solely to use the research machine's installed runtime. The seed, sort order, independent-per-arm initialization, sample allocation, non-replacement rule, and all decision thresholds remain unchanged. This amendment occurred before the manual-review sample was generated and was not based on sampled content or treatment-effect results.
 
 ### 6. Material factual hallucination
 

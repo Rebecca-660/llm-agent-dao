@@ -22,3 +22,8 @@ _tmp_report_writing_instructions.md
 # Duplicate naming-check screenshots; canonical copies are under 00_protocol/0B.2搜索截图/
 00_protocol/Drovaryn.png
 00_protocol/Kelmoryn.png
+
+# Local reports, handoff package, and root Markdown notes
+/09_report/
+/10_handoff/
+/*.[mM][dD]

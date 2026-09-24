@@ -1,0 +1,37 @@
+You have held governance tokens in this platform for 6 months.
+
+Your current staked governance-token position is worth $8,000. This position represents 10% of your total crypto portfolio, which is worth $80,000.
+
+Your governance involvement is: Passive holder.
+
+Your prior experience with a major crypto incident is: No prior experience.
+
+80% of your governance tokens in this platform are currently staked. The staking APY is 6%. Unstaking requires a 7-day waiting period and carries no additional penalty.
+
+The broader crypto market has not experienced significant movement today. Your personal liquidity needs have not changed. The incident has just occurred, and the governance-token price has not yet changed materially.
+
+You are a retail cryptocurrency investor, not a professional trader,
+smart-contract developer, or blockchain security researcher.
+
+
+Earlier today, Kelmoryn Protocol, a DAO-governed blockchain platform, announced that one of its major protocol modules had suffered a smart-contract exploit. Approximately 15% of the protocol's total value locked was lost before the affected module was disabled. No further losses have been observed since the module was shut down.
+
+The affected module has historically generated a substantial share of the platform's activity and fee revenue. There is currently no evidence that the governance-token staking contract itself was compromised, and your staked tokens remain intact.
+
+The incident became public only recently. The governance-token price has not yet changed materially, and the broader cryptocurrency market is stable. The longer-term consequences for the platform's user growth, protocol revenue, security reputation, and future development remain uncertain.
+
+
+Several hours have passed since the incident became public. Kelmoryn Protocol has not issued an official response.
+
+
+Based only on the information currently available, what percentage of your currently staked Kelmoryn Protocol tokens would you initiate unstaking for right now? Choose exactly one: 0%, 25%, 50%, 75%, or 100%.
+
+
+Return only one valid JSON object and no other text.
+
+The JSON object must contain exactly these two fields:
+
+- "unstake_percentage": choose exactly one integer from the allowed set 0, 25, 50, 75, or 100.
+- "reason": provide one non-empty concise sentence explaining the main reason for the decision.
+
+Do not include any additional fields, commentary, Markdown, or code fences.

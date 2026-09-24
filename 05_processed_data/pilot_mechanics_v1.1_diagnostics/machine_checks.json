@@ -1,0 +1,116 @@
+{
+  "generated_at": "2026-09-04T14:23:53.510821+00:00",
+  "generator_python": "3.14.4",
+  "selected_run_id": "pilot_20260904T135552Z_be4faaf7",
+  "selected_raw_path": "03_raw_outputs/pilot/pilot_20260904T135552Z_be4faaf7.jsonl",
+  "selected_raw_sha256": "2c6b01611e2f44a59d8039f7fa654cdb60df91d6c908ecc92005db3a34efc6f0",
+  "selected_attempt_log_path": "08_logs/pilot/pilot_20260904T135552Z_be4faaf7_attempts.jsonl",
+  "selected_attempt_log_sha256": "bc1e2d1c5af16402b3189a83e7019dee3230867c44e574c4b0a88f07154676dd",
+  "input_isolation": {
+    "selected_run_only": true,
+    "historical_pilot_data_loaded": false,
+    "tiny_run_data_loaded": false,
+    "dry_run_data_loaded": false,
+    "connectivity_check_data_loaded": false
+  },
+  "execution_status": {
+    "api_successes": 48,
+    "api_errors": 0,
+    "attempt_records": 48,
+    "retry_scheduled_count": 0,
+    "maximum_attempt": 1,
+    "parse_successes": 48,
+    "parse_failures": 0
+  },
+  "checks": [
+    {
+      "criterion": 1,
+      "name": "Cell completeness and isolation",
+      "threshold": "Exactly 48 unique P01-P16 x S/C0/T3 cells from one run; run_type=pilot",
+      "observed": {
+        "records": 48,
+        "unique_cells": 48,
+        "condition_counts": {
+          "S": 16,
+          "C0": 16,
+          "T3": 16
+        },
+        "missing_cells": [],
+        "duplicate_cells": [],
+        "unexpected_cells": [],
+        "run_ids": [
+          "pilot_20260904T135552Z_be4faaf7"
+        ],
+        "run_types": [
+          "pilot"
+        ]
+      },
+      "result": "PASS"
+    },
+    {
+      "criterion": 2,
+      "name": "C0 mean dynamic range",
+      "threshold": "15 <= mean <= 75 among valid non-refusal C0 responses",
+      "observed": {
+        "valid_n": 16,
+        "mean": 21.875
+      },
+      "result": "PASS"
+    },
+    {
+      "criterion": 3,
+      "name": "C0 response-category diversity",
+      "threshold": "At least 3 distinct categories among valid non-refusal C0 responses",
+      "observed": {
+        "valid_n": 16,
+        "distinct_categories": 2,
+        "category_counts": {
+          "0": 2,
+          "25": 14
+        }
+      },
+      "result": "FAIL"
+    },
+    {
+      "criterion": 4,
+      "name": "Combined category concentration",
+      "threshold": "Maximum single-category share <= 0.85 among pooled valid non-refusal responses",
+      "observed": {
+        "valid_n": 48,
+        "category_counts": {
+          "0": 13,
+          "25": 35
+        },
+        "maximum_category": 25,
+        "maximum_count": 35,
+        "maximum_share": 0.7291666666666666
+      },
+      "result": "PASS"
+    },
+    {
+      "criterion": 5,
+      "name": "Structured-output validity",
+      "threshold": "At least 46 of all 48 planned responses valid and non-refusal",
+      "observed": {
+        "valid_non_refusal": 48,
+        "denominator": 48,
+        "rate": 1.0,
+        "parse_failure_count": 0,
+        "refusal_candidate_count": 0,
+        "api_error_count": 0,
+        "empty_response_count": 0
+      },
+      "result": "PASS"
+    }
+  ],
+  "parse_failures": [],
+  "refusal_candidates": [],
+  "api_error_cells": [],
+  "empty_response_cells": [],
+  "prohibited_analyses": {
+    "treatment_ordering_calculated": false,
+    "statistical_significance_calculated": false,
+    "effect_size_calculated": false
+  },
+  "decision_boundary": "Machine checks do not constitute the researcher's final Pilot decision and do not authorize freeze or a main run."
+}

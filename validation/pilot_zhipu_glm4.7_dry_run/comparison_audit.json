@@ -1,0 +1,40 @@
+{
+  "audit_type": "zhipu_primary_model_replacement_dry_run",
+  "api_calls_made": 0,
+  "historical_manifest": "validation/pilot_v1.1_dry_run/pilot_requests.jsonl",
+  "new_manifest": "validation/pilot_zhipu_glm4.7_dry_run/pilot_requests.jsonl",
+  "record_count": 48,
+  "unique_cell_count": 48,
+  "condition_counts": {
+    "S": 16,
+    "C0": 16,
+    "T3": 16
+  },
+  "same_cell_sets": true,
+  "byte_identical_prompt_count": 48,
+  "matching_prompt_sha256_count": 48,
+  "unresolved_placeholder_record_count": 0,
+  "completed_answer_example_record_count": 0,
+  "new_provider_values": [
+    "zhipu"
+  ],
+  "new_model_values": [
+    "glm-4.7"
+  ],
+  "new_api_base_url_values": [
+    "https://open.bigmodel.cn/api/paas/v4/"
+  ],
+  "new_sampling_mode_values": [
+    "greedy_do_sample_false"
+  ],
+  "new_do_sample_values": [
+    false
+  ],
+  "new_thinking_mode_values": [
+    "disabled"
+  ],
+  "new_output_requirement_version_values": [
+    "v1.1"
+  ],
+  "conclusion": "All 48 experimental prompts are byte-identical to the previously approved v1.1 prompts. Only the provider request envelope and its recorded execution metadata differ."
+}

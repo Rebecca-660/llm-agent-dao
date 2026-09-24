@@ -1,0 +1,42 @@
+[
+  {
+    "contrast": "C0-S",
+    "n": 15,
+    "observed_absolute_mean_difference": 3.3333333333333335,
+    "number_of_sign_assignments": 32768,
+    "extreme_or_equal_assignments": 20480,
+    "exact_two_sided_p_value": 0.625,
+    "equality_included": true,
+    "zero_differences_included": true
+  },
+  {
+    "contrast": "T1-C0",
+    "n": 16,
+    "observed_absolute_mean_difference": 6.25,
+    "number_of_sign_assignments": 65536,
+    "extreme_or_equal_assignments": 14336,
+    "exact_two_sided_p_value": 0.21875,
+    "equality_included": true,
+    "zero_differences_included": true
+  },
+  {
+    "contrast": "T2-T1",
+    "n": 16,
+    "observed_absolute_mean_difference": 1.5625,
+    "number_of_sign_assignments": 65536,
+    "extreme_or_equal_assignments": 65536,
+    "exact_two_sided_p_value": 1.0,
+    "equality_included": true,
+    "zero_differences_included": true
+  },
+  {
+    "contrast": "T3-T2",
+    "n": 16,
+    "observed_absolute_mean_difference": 7.8125,
+    "number_of_sign_assignments": 65536,
+    "extreme_or_equal_assignments": 4096,
+    "exact_two_sided_p_value": 0.0625,
+    "equality_included": true,
+    "zero_differences_included": true
+  }
+]

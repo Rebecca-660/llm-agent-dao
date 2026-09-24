@@ -1,0 +1,48 @@
+{
+  "result": "PASS",
+  "run_id": "main_20260904T160520Z_d93b455f",
+  "run_type": "main",
+  "source_files": {
+    "03_raw_outputs/main/main_20260904T160520Z_d93b455f.jsonl": "39bdb58582f3700dcab21729907ec205d93b29e69233067c6b9dc7b7200a24d4",
+    "08_logs/main/main_20260904T160520Z_d93b455f_attempts.jsonl": "543398ba8bb23b16cabc718550306f8481b217bd5eca959011543722df7c6dcf",
+    "00_protocol/formal_material_freeze_v1.2.md": "bea04e9ab21cc74f08bcad76ecd087715e1b3225cf122be4b1a0c513e0a9bbf3",
+    "00_protocol/main_run_plan_v1.2.md": "b64efbaeceb47ae07c64f2d0545e7fa81bd8722a89201fef4e49fe4973cf3907"
+  },
+  "record_count": 80,
+  "unique_cell_count": 80,
+  "arm_counts": {
+    "S": 16,
+    "C0": 16,
+    "T1": 16,
+    "T2": 16,
+    "T3": 16
+  },
+  "missing_cells": [],
+  "unexpected_cells": [],
+  "duplicate_cells": [],
+  "attempt_record_count": 80,
+  "retry_scheduled_count": 0,
+  "cells_with_multiple_attempts": [],
+  "api_success_count": 80,
+  "outcome_status_counts": {
+    "valid": 79,
+    "parse_failure": 1,
+    "illegal_value": 0,
+    "empty_response": 0,
+    "refusal": 0,
+    "api_error": 0
+  },
+  "validity_rate": 0.9875,
+  "parse_failure_cells": [
+    "P11_S"
+  ],
+  "missing_data_rule": "Invalid records remain missing; no re-ask, repair, rounding, coercion, inference, or imputation.",
+  "excluded_data_classes": [
+    "Pilot",
+    "Tiny Run",
+    "dry-run",
+    "smoke",
+    "connectivity-check"
+  ],
+  "treatment_effect_analysis_performed": false
+}

@@ -2,6 +2,7 @@ import argparse
 import csv
 import hashlib
 import json
+import os
 import re
 import sys
 import time
@@ -24,14 +25,16 @@ from parser import parse_response
 from persona_renderer import render_persona
 from prompt_assembler import (
     COMMON_SHOCK_PATH,
+    DEFAULT_PERSONA_TEMPLATE_VERSION,
     OUTPUT_REQUIREMENT_PATHS,
     OUTCOME_QUESTION_PATH,
     PERSONA_COLUMNS,
-    PERSONA_TEMPLATE_PATH,
+    PERSONA_TEMPLATE_PATHS,
     PROTOCOL_NAME_DECISION_PATH,
     TREATMENT_PATHS,
     assemble_prompt,
     get_output_requirement_path,
+    get_persona_template_path,
 )
 
 
@@ -46,8 +49,28 @@ LOG_OUTPUT_DIRECTORY = PROJECT_ROOT / "08_logs" / "pilot"
 
 PERSONA_IDS = tuple(f"P{number:02d}" for number in range(1, 17))
 CONDITIONS = ("S", "C0", "T3")
-TEMPERATURE = 0
-PROVIDER = "openai"
+PROVIDERS = ("openai", "zhipu")
+DEFAULT_PROVIDER = "openai"
+OPENAI_BASE_URL = "https://api.openai.com/v1"
+ZHIPU_BASE_URL = "https://open.bigmodel.cn/api/paas/v4/"
+ZHIPU_PRIMARY_MODEL = "glm-4.7"
+ZHIPU_THINKING_MODE = "disabled"
+DECODING_REGIMES = {
+    "greedy_v1.1": {
+        "temperature": 0,
+        "do_sample": False,
+        "sampling_mode": "greedy_do_sample_false",
+    },
+    "stochastic_low_v1.2": {
+        "temperature": 0.2,
+        "do_sample": True,
+        "sampling_mode": "stochastic_temperature_0.2",
+    },
+}
+DEFAULT_DECODING_REGIME = "greedy_v1.1"
+# Backward-compatible aliases for historical callers and tests.
+TEMPERATURE = DECODING_REGIMES[DEFAULT_DECODING_REGIME]["temperature"]
+ZHIPU_DO_SAMPLE = DECODING_REGIMES[DEFAULT_DECODING_REGIME]["do_sample"]
 RUN_TYPE = "pilot"
 RUN_MODE = "dry_run"
 DRY_RUN_ID = "pilot_dry_run_v1"
@@ -106,17 +129,87 @@ def load_pilot_personas(
     return personas
 
 
+def provider_base_url(provider: str) -> str:
+    if provider == "openai":
+        return OPENAI_BASE_URL
+    if provider == "zhipu":
+        return ZHIPU_BASE_URL
+    raise ValueError(f"Unknown provider: {provider}")
+
+
+def decoding_configuration(
+    decoding_regime: str, provider: str
+) -> dict[str, Any]:
+    try:
+        configuration = DECODING_REGIMES[decoding_regime]
+    except KeyError as error:
+        allowed = ", ".join(DECODING_REGIMES)
+        raise ValueError(
+            f"Unknown decoding regime {decoding_regime!r}; "
+            f"expected one of: {allowed}"
+        ) from error
+    if provider != "zhipu" and decoding_regime != DEFAULT_DECODING_REGIME:
+        raise ValueError(
+            f"Decoding regime {decoding_regime!r} is only supported for zhipu."
+        )
+    return configuration
+
+
+def api_request_payload(
+    *,
+    provider: str,
+    model: str,
+    system_prompt: str,
+    prompt: str,
+    decoding_regime: str = DEFAULT_DECODING_REGIME,
+) -> dict[str, Any]:
+    decoding = decoding_configuration(decoding_regime, provider)
+    common = {"model": model, "temperature": decoding["temperature"]}
+    if provider == "openai":
+        return {
+            **common,
+            "instructions": system_prompt,
+            "input": prompt,
+            "previous_response_id": None,
+        }
+    if provider == "zhipu":
+        return {
+            **common,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt},
+            ],
+            "extra_body": {
+                "do_sample": decoding["do_sample"],
+                "thinking": {"type": ZHIPU_THINKING_MODE},
+            },
+        }
+    raise ValueError(f"Unknown provider: {provider}")
+
+
 def request_sha256(
-    *, model: str, system_prompt: str, prompt: str
+    *,
+    model: str,
+    system_prompt: str,
+    prompt: str,
+    provider: str = DEFAULT_PROVIDER,
+    decoding_regime: str = DEFAULT_DECODING_REGIME,
 ) -> str:
+    # Preserve the exact historical OpenAI hash representation.  The Zhipu
+    # representation adds its endpoint because it is part of that provider's
+    # compatibility configuration.
     request_payload = {
-        "provider": PROVIDER,
-        "model": model,
-        "temperature": TEMPERATURE,
-        "instructions": system_prompt,
-        "input": prompt,
-        "previous_response_id": None,
+        "provider": provider,
+        **api_request_payload(
+            provider=provider,
+            model=model,
+            system_prompt=system_prompt,
+            prompt=prompt,
+            decoding_regime=decoding_regime,
+        ),
     }
+    if provider == "zhipu":
+        request_payload["base_url"] = provider_base_url(provider)
     serialized = json.dumps(
         request_payload, ensure_ascii=False, sort_keys=True, separators=(",", ":")
     )
@@ -124,15 +217,20 @@ def request_sha256(
 
 
 def source_hashes(
-    condition: str, output_requirement_version: str
+    condition: str,
+    output_requirement_version: str,
+    persona_template_version: str,
 ) -> dict[str, str]:
     output_requirement_path = get_output_requirement_path(
         output_requirement_version
     )
+    persona_template_path = get_persona_template_path(
+        persona_template_version
+    )
     source_paths = (
         PROTOCOL_NAME_DECISION_PATH,
         PERSONAS_PATH,
-        PERSONA_TEMPLATE_PATH,
+        persona_template_path,
         COMMON_SHOCK_PATH,
         TREATMENT_PATHS[condition],
         OUTCOME_QUESTION_PATH,
@@ -143,13 +241,22 @@ def source_hashes(
 
 
 def build_dry_run_records(
-    model: str, output_requirement_version: str
+    model: str,
+    output_requirement_version: str,
+    persona_template_version: str = DEFAULT_PERSONA_TEMPLATE_VERSION,
+    provider: str = DEFAULT_PROVIDER,
+    decoding_regime: str = DEFAULT_DECODING_REGIME,
 ) -> list[dict[str, Any]]:
     if not model.strip():
         raise ValueError("Model name must not be empty.")
+    base_url = provider_base_url(provider)
+    decoding = decoding_configuration(decoding_regime, provider)
 
     output_requirement_path = get_output_requirement_path(
         output_requirement_version
+    )
+    persona_template_path = get_persona_template_path(
+        persona_template_version
     )
 
     personas = load_pilot_personas()
@@ -164,6 +271,7 @@ def build_dry_run_records(
             assembled_template = assemble_prompt(
                 persona,
                 condition,
+                persona_template_version=persona_template_version,
                 output_requirement_version=output_requirement_version,
             )
             prompt = render_persona(assembled_template, persona)
@@ -186,12 +294,30 @@ def build_dry_run_records(
                     "cell_id": f"{persona_id}_{condition}",
                     "persona_id": persona_id,
                     "condition": condition,
-                    "provider": PROVIDER,
+                    "provider": provider,
+                    "api_base_url": base_url,
+                    "sdk_name": "openai",
                     "openai_sdk_version": OPENAI_SDK_VERSION,
+                    "decoding_regime": decoding_regime,
+                    "sampling_mode": (
+                        decoding["sampling_mode"]
+                        if provider == "zhipu"
+                        else "temperature_0"
+                    ),
+                    "do_sample": (
+                        decoding["do_sample"] if provider == "zhipu" else None
+                    ),
+                    "thinking_mode": (
+                        ZHIPU_THINKING_MODE if provider == "zhipu" else None
+                    ),
                     "model": model,
-                    "temperature": TEMPERATURE,
+                    "temperature": decoding["temperature"],
                     "generated_at": generated_at,
                     "wording_version": "canonical_v1.0",
+                    "persona_template_version": persona_template_version,
+                    "persona_template_path": relative_path(
+                        persona_template_path
+                    ),
                     "output_requirement_version": output_requirement_version,
                     "output_requirement_path": relative_path(
                         output_requirement_path
@@ -207,9 +333,13 @@ def build_dry_run_records(
                         model=model,
                         system_prompt=system_prompt,
                         prompt=prompt,
+                        provider=provider,
+                        decoding_regime=decoding_regime,
                     ),
                     "source_sha256": source_hashes(
-                        condition, output_requirement_version
+                        condition,
+                        output_requirement_version,
+                        persona_template_version,
                     ),
                 }
             )
@@ -250,6 +380,19 @@ def write_dry_run(
         "run_id": DRY_RUN_ID,
         "run_type": RUN_TYPE,
         "run_mode": RUN_MODE,
+        "provider": records[0]["provider"],
+        "api_base_url": records[0]["api_base_url"],
+        "sdk_name": records[0]["sdk_name"],
+        "openai_sdk_version": records[0]["openai_sdk_version"],
+        "model": records[0]["model"],
+        "decoding_regime": records[0]["decoding_regime"],
+        "sampling_mode": records[0]["sampling_mode"],
+        "do_sample": records[0]["do_sample"],
+        "thinking_mode": records[0]["thinking_mode"],
+        "persona_template_version": records[0][
+            "persona_template_version"
+        ],
+        "persona_template_path": records[0]["persona_template_path"],
         "output_requirement_version": records[0][
             "output_requirement_version"
         ],
@@ -312,6 +455,25 @@ def is_transient_error(error: Exception) -> bool:
     return isinstance(error, TRANSIENT_ERROR_TYPES)
 
 
+def send_model_request(
+    client: Any, request_record: dict[str, Any]
+) -> tuple[Any, str]:
+    payload = api_request_payload(
+        provider=request_record["provider"],
+        model=request_record["model"],
+        system_prompt=request_record["system_prompt"],
+        prompt=request_record["prompt"],
+        decoding_regime=request_record["decoding_regime"],
+    )
+    if request_record["provider"] == "openai":
+        response = client.responses.create(**payload)
+        return response, response.output_text
+    if request_record["provider"] == "zhipu":
+        response = client.chat.completions.create(**payload)
+        return response, response.choices[0].message.content
+    raise ValueError(f"Unknown provider: {request_record['provider']}")
+
+
 def execute_pilot(
     request_records: list[dict[str, Any]],
     *,
@@ -331,15 +493,10 @@ def execute_pilot(
         for attempt in range(1, MAX_ATTEMPTS + 1):
             attempt_started_at = utc_timestamp()
             try:
-                response = client.responses.create(
-                    model=request_record["model"],
-                    instructions=request_record["system_prompt"],
-                    input=request_record["prompt"],
-                    temperature=request_record["temperature"],
-                    previous_response_id=None,
+                response, raw_response_text = send_model_request(
+                    client, request_record
                 )
                 completed_at = utc_timestamp()
-                raw_response_text = response.output_text
                 parse_result = parse_response(raw_response_text)
 
                 append_jsonl(
@@ -347,6 +504,7 @@ def execute_pilot(
                     {
                         "run_id": run_id,
                         "run_type": RUN_TYPE,
+                        "provider": request_record["provider"],
                         "cell_id": request_record["cell_id"],
                         "attempt": attempt,
                         "started_at": attempt_started_at,
@@ -393,6 +551,7 @@ def execute_pilot(
                     {
                         "run_id": run_id,
                         "run_type": RUN_TYPE,
+                        "provider": request_record["provider"],
                         "cell_id": request_record["cell_id"],
                         "attempt": attempt,
                         "started_at": attempt_started_at,
@@ -438,9 +597,24 @@ def execute_pilot(
     return final_records
 
 
-def create_openai_client() -> OpenAI:
+def require_environment_variable(name: str) -> str:
+    value = os.environ.get(name, "").strip()
+    if not value:
+        raise RuntimeError(f"Required environment variable is not set: {name}")
+    return value
+
+
+def create_api_client(provider: str) -> OpenAI:
     # Disable SDK-level retries so every retry is controlled and logged here.
-    return OpenAI(max_retries=0)
+    if provider == "openai":
+        return OpenAI(max_retries=0)
+    if provider == "zhipu":
+        return OpenAI(
+            api_key=require_environment_variable("ZAI_API_KEY"),
+            base_url=ZHIPU_BASE_URL,
+            max_retries=0,
+        )
+    raise ValueError(f"Unknown provider: {provider}")
 
 
 def parse_args() -> argparse.Namespace:
@@ -450,7 +624,26 @@ def parse_args() -> argparse.Namespace:
     mode = parser.add_mutually_exclusive_group(required=True)
     mode.add_argument("--dry-run", action="store_true")
     mode.add_argument("--execute", action="store_true")
+    parser.add_argument("--provider", required=True, choices=PROVIDERS)
     parser.add_argument("--model", required=True)
+    parser.add_argument(
+        "--decoding-regime",
+        required=True,
+        choices=tuple(DECODING_REGIMES),
+        help=(
+            "Explicit decoding regime. Use greedy_v1.1 to reproduce prior "
+            "requests; stochastic_low_v1.2 is the preregistered v1.2 regime."
+        ),
+    )
+    parser.add_argument(
+        "--persona-template-version",
+        required=True,
+        choices=tuple(PERSONA_TEMPLATE_PATHS),
+        help=(
+            "Explicit formal persona-template version. Use v1.0 to "
+            "reproduce earlier requests; use v1.1 for the mechanics-clarified Pilot."
+        ),
+    )
     parser.add_argument(
         "--output-requirement-version",
         required=True,
@@ -481,7 +674,11 @@ def parse_args() -> argparse.Namespace:
 def main() -> int:
     args = parse_args()
     records = build_dry_run_records(
-        args.model, args.output_requirement_version
+        args.model,
+        args.output_requirement_version,
+        args.persona_template_version,
+        provider=args.provider,
+        decoding_regime=args.decoding_regime,
     )
     if args.dry_run:
         requests_path, summary_path = write_dry_run(
@@ -499,7 +696,7 @@ def main() -> int:
         args.raw_output_directory,
         args.log_output_directory,
     )
-    client = create_openai_client()
+    client = create_api_client(args.provider)
     final_records = execute_pilot(
         records,
         client=client,

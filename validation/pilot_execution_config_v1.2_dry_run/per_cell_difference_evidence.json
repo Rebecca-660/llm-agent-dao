@@ -1,0 +1,1198 @@
+{
+  "result": "PASS",
+  "comparison_basis": {
+    "previous_run_id": "pilot_20260904T135552Z_be4faaf7",
+    "previous_file": "03_raw_outputs/pilot/pilot_20260904T135552Z_be4faaf7.jsonl",
+    "new_run_id": "pilot_dry_run_v1",
+    "new_file": "validation/pilot_execution_config_v1.2_dry_run/pilot_requests.jsonl",
+    "R22_old_regime": "greedy_v1.1",
+    "R22_new_regime": "stochastic_low_v1.2"
+  },
+  "cell_checks": {
+    "old_record_count": 48,
+    "new_record_count": 48,
+    "old_unique_cells": 48,
+    "new_unique_cells": 48,
+    "old_duplicate_count": 0,
+    "new_duplicate_count": 0,
+    "new_condition_counts": {
+      "S": 16,
+      "C0": 16,
+      "T3": 16
+    },
+    "missing_new_cells": [],
+    "unexpected_new_cells": []
+  },
+  "material_checks": {
+    "placeholder_cells": [],
+    "prompt_hashes_equal_all_cells": true,
+    "system_hashes_equal_all_cells": true,
+    "source_hashes_equal_all_cells": true,
+    "model": "glm-4.7",
+    "mechanics_version": "v1.1",
+    "output_requirement_version": "v1.1",
+    "answer_order": "canonical_ascending"
+  },
+  "execution_config_check": {
+    "conceptual_factor": "decoding_regime",
+    "new_decoding_regime": "stochastic_low_v1.2",
+    "linked_field_changes_match_R22_all_cells": true,
+    "request_hash_changed_all_cells": true,
+    "unexpected_differences": []
+  },
+  "api_calls_made": 0,
+  "per_cell": [
+    {
+      "cell_id": "P01_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "5843234f5f49bfa7773cdf5652667289f5134be66ecc1ad6c8d6f54e6c633c87",
+      "new_request_sha256": "c98175f7c2c1498489d1ed137d933b0aee70f1ad688b3adac3360d752c531048",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P01_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "03f71429c1f94de79336c2180c30e1301526742557166a6ec4295e25b79e502e",
+      "new_request_sha256": "a75630c8ffebab2394d491631fbc5dc77d7790621dc36fb074590b7f3187d2b4",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P01_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "356640ac19b20fb9448bf6042342f2865b4076f049375f0b843e7480ca531231",
+      "new_request_sha256": "b8430186b4fffb26a6534a6f085a5b753cb49dbed265b217e70deb233c1b8ad8",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P02_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "960c8d02c43954007a3ef31d22e22bf0a82b6dba912a2fa3e0ad813c7946ef20",
+      "new_request_sha256": "5ffaea4f79dc25a664ec6ea14c9fe59029ba01b63e521e2101f7384c1d78ead1",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P02_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "0f9997d79aae902a2e6472c716f1934ae89bffe93521456487516c9f010b3027",
+      "new_request_sha256": "2f0b6ded738b816d31197f1f004d78b181c6788efcc802a738cb23228df1de85",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P02_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "5836961c4ce3d9582c40aa4bdfa9e9b6a94106993df4d41127bb50e98e978795",
+      "new_request_sha256": "51205e035b3d195a96115955c1d40bb4a2cc202923b91168e73536b00951ed3c",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P03_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "c6afedd5f0eaacc47e9afb826adc010fc43cf30d780e9562137ce60f3562a414",
+      "new_request_sha256": "c95ad929adb971da0d088e4d34eeb31e760a73bde93984a5c6f94e7394d1d48d",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P03_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "3340d60f1255bc5cf06283e29bdbdaaacfeb952a357ac33637d0a0d786c6a773",
+      "new_request_sha256": "74ed1a2c1c3ad8d5abdfe4e59ed0248d5b3988628e9f96f7b032b4d8e34a1f87",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P03_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "fe545d36508a18180bcee0c80715760b6f76cf7cbde39c2c69352b0a639c515a",
+      "new_request_sha256": "8595870b3bddc1fcda03d14ea31c8c97e7638c4d0729c7c0ffab69b997710156",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P04_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "f313808b68e8fe8da8bd08b4e576540e618032d8c2edc3edcb3ccf424a7a4af3",
+      "new_request_sha256": "1eb9a178c3cefbce9c8fefb858d221de91a19d8c027b49133f482d31ed0b23e9",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P04_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "47b51527c27ce9d0dd9ecb56929f5a7b50c39682f963a7a0b17375a46826f2bb",
+      "new_request_sha256": "0d395eae0edc0aacc80d9057a1a9e646bed89b810cc023570110c18004bac477",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P04_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "848e05b333751f59abb0fcba5bcb1b41710bc6f5e4d8be1bfa3805cd71e7114f",
+      "new_request_sha256": "17c4cb397b89ad79022448fc4c09c57a66e5ed66e35188b2617f8b3138b0899f",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P05_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "8438f23fe797740957f414b36d433febbb4b3b7d1d972398df31baace86147d6",
+      "new_request_sha256": "a8dfe17ad5bc2d7310b0ca145eb0a616baed9af4e90b0ea272102778beb89a3c",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P05_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "4d8da7a5b5e1a2b35fea1bafdb88483b0c15fe145f37a4924e4c4b64d75ea663",
+      "new_request_sha256": "59de2d56653c88ae98200712b17b33ac2849378d50247fbec4f49b659667ee14",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P05_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "e88697f6504c9e8a86b07deade95193e3ba241eeff4e064d878cba432e8104ba",
+      "new_request_sha256": "a8256992afd0c7e723412d423ff57c276bd2f1d09c85d1074774ee74f46ddd22",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P06_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "352632a3d76be39126de8d47ef38c4efb216ff614210e39cd3538e3f75262487",
+      "new_request_sha256": "97acdc85edd237e15658cff44fc3845ef7972a2f51fac14eaaf084fe57175405",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P06_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "082d51f01e1d9c91fac837dd32c093ad297a5e99aa95e34680aef2859337fe9b",
+      "new_request_sha256": "53de8fc0b13060f421f9515138e071c98e369951b270a31ae6229fd584a76b33",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P06_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "dce3abe4457fa558532b65bbefe0923e24f695416899148f9ad2a309331337c9",
+      "new_request_sha256": "6c1fb2e9f3c5adef24d07432e9a7dbb435427a56300539a969e6f6ef2be78b96",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P07_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "58f55a7280708e807a4f6d50ca4d2624ef7c8bb3eb077c38cb960132f04742c4",
+      "new_request_sha256": "8c5b54b508ba2533c4539ea31a821498bd6408c73b7992a6a13b8bb470e6869c",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P07_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "67e7daddc2f6cb5ad8fcbf5952bf605867ac0ed5f528ad42cf30a91980cdac65",
+      "new_request_sha256": "c688193b0d7467a4b64e68fc410f3dd2c0178a0e82ed460e190e71c65df84a22",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P07_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "546fcc1fa6ed4bb4ee191c1e777f316665eb99b26ec0a7809e76271f81593eb6",
+      "new_request_sha256": "e9819829da44b67e797cae277e7a5730cc8b6fd8635faedf43e34e8e5bf12413",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P08_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "414238e61bea4b2c2d494dbc128ef6cf23eb02d18c7cd7abffb1f3e8d4361cfe",
+      "new_request_sha256": "f2f6ac175e709ffab96edae45bab18138a731e55339806b1f87a970c62ab259d",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P08_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "6b7b685ae8636f8ded81d9ad65ab0ec11f4e97117d5ff4a3d65f9c5a361c84c5",
+      "new_request_sha256": "97266825087991b33e46e76b7fadf1ca38214755e93e4f8e7b4f66efbdf5d8b4",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P08_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "ebf8eb16862ed4290b214391d770b0eabd2826c44f11a14af5b462e0f9171266",
+      "new_request_sha256": "4acdb5bc80bf1d8fdfda7a6dea3acd01fe0f1a75ad151ce1330dc34215df8caa",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P09_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "6d24ffcb4187f1f461d73fabccc3c14da902e13f26e74df36ace5e74bc7d1b9e",
+      "new_request_sha256": "2c1d8ef162fc2c94ecf0c7fd767b0460da75bc8f583991ef31718eecd1372ef2",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P09_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "cebdf4e5cba59a607a8c5454b5425ca55ec346402ac2e03f7acaaf06fb49c1a3",
+      "new_request_sha256": "1e52675b202ea25e7f26bcdb1770b102b67bda5bdd809fa45f675eb5cca49195",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P09_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "60190a52281f52515a93ba6a2d88459be75a4224d264f9574e9763607a191b0e",
+      "new_request_sha256": "bdd90e429d54ad2cc1594341ff1983e110a8ddd8babb8e6d95eb65953c5d1e27",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P10_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "a9062d9b50ae014120cc27e4c460d2582ee64458563a369586e16ee38b4fdf77",
+      "new_request_sha256": "70c516593293c297dd9f961f14e9d7885bdf472231cf0092f62805bc26ad5472",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P10_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "ae4563c005966a13554dbac6ad1884a87040461d93c6f17169992f2ff51785db",
+      "new_request_sha256": "ed65e028ff7ad11aaf517befac289ecf88348bcbb416f32ced671dfe8bf2d8c8",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P10_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "03cbbeb129d07bbc1605fe90a87b15bfcaedb36ff8df270190b5f94258d2999d",
+      "new_request_sha256": "1b94070bdcba8800510e9d8911b9e80beeb93674da99db8c5a87842977ea4bfb",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P11_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "6c0c9fe05aa8c97b330de4e3aaddb57a8fad86378d8e1df23275d458f650f5f8",
+      "new_request_sha256": "dc5866361ccc7505e9d42f244f2ee0748b1379c05ea33c3920ebacfff5e7e03f",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P11_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "727562ab74525d2185484a6f886b32a2e3ba227bec17958e41b950690faa1c06",
+      "new_request_sha256": "096f44c29ba7d78a86b1bc1d346068d0d697198547d4d952a0069c961347765e",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P11_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "1faa7b1fbe6b06d5629dd5c76c41ee9ea22664cd1313f00b5feb3693c117335e",
+      "new_request_sha256": "f009771713f34195cf8916eb26babf34b6b80d150d50856ce4e1598f76ce9f12",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P12_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "9a8c7aff8fab9520dc15133634f6428eb395f2dd83dca6d0cdf8dff4053200e9",
+      "new_request_sha256": "800d6321b4af1682e9d957420114ca7062a3151a643a5d6cb723f83b5edaa4d4",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P12_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "a955e1464acf53f0fc75799dde68146d5a3fb4dce2c7179cb7ad6c2b0f896797",
+      "new_request_sha256": "baaab84e8f23a55ab094643cf7ee0525e8f26bb2ba02592c3b5d382806766c4e",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P12_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "4b84a738b8a165aeb58ffb9e8e2ba8f7ee4a93ebb3b158b2d9a0022ca1b521a0",
+      "new_request_sha256": "20bdf89e28d89e620cdf50cd7f1696f525d8383dcb8bb113c1762d72f6d5b7c7",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P13_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "f16aad00d26ca2777924568521beb0665d4685bd05ae6d5262e0a3988a20eb62",
+      "new_request_sha256": "e35f5a4972479e93f026f7b9816c268701a30eca9e1caac35b1e82b4fb57e6d4",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P13_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "5c4b34c9a9ca22f840e20aac92a868fe0245b9debca6f056084f3ffacf8bb0ff",
+      "new_request_sha256": "cf98ffa470035142e0ce99afd0a16b0e2e7b1f9e7a899d0fbbf83d5b89d63272",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P13_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "b256c3f28bdf9b687443e846f328b4faf1f9d2e463b30185679df6aabeec4f64",
+      "new_request_sha256": "a785721a7613ba4602c31ade0e12158cda8fddc8f6e3803c12b077143f301454",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P14_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "61a77da66437ba06b80aa0daee4529bc94c120cfcbb7f328ba9c7b13179f63d7",
+      "new_request_sha256": "9fcb63bf6daf68184b79ba91c1ae817d18bbe10dc84b321f3f5047f6143c69f1",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P14_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "9a9d1be2e89c224fe2943693cc30e9a4b185bd3de216e4ad669d3d5cf033a2b7",
+      "new_request_sha256": "4cdb8237f22fe64571e8475bf7924837ee31edc7acdb16c9b84bf790d98be890",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P14_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "af2a708403dab2ce7b6486b7199b2ca6522bd17bacdece8e517d631c52154dbb",
+      "new_request_sha256": "b15b7f4a3d0219523e88cbe53f7cdb06d2cfe7000c88b90d5d3d9e0e8ce6d4b1",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P15_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "8a64afc4571c29f06a3c885880cdc9ff0aac8c89a7a96a6e8bfa22ed6ba53d2f",
+      "new_request_sha256": "bd2ab6269194d2cb8ca3b90ac70484a1d416ed35c7df7a3d08298c69f040edcc",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P15_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "ded0bb638feb8b7d90bd8207d28d06a347ce9b7ea274ef641c301e56fca4f700",
+      "new_request_sha256": "db44b61206c4d026e6137171e2d81d3cf04c8a38a61b4c468c3c5d9e52778ae9",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P15_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "31976561ddfae5c3ed62c190ccd35d3a378afde859e31df40b21ef1a47db1832",
+      "new_request_sha256": "dd8776c48e791bcf54208d4b222076a674624ad612294edbe04942a1d216c529",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P16_C0",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "72be6acf69877834796ab09c171e2b816f2dfe3f6ee1a9ae6f8c47171df9e77e",
+      "new_request_sha256": "84621b8db4788f781d8664ce7c85c0d8365f57cd4854eaa4edc4bf2df3fbd27f",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P16_S",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "b09dc562469c5b57d8449e733f7572590822e11fad75e58515f3c88c981e5c9c",
+      "new_request_sha256": "a941542768345de2b13bcaf0aedeaf44f72ea4ebfae026668b29d61900c3742d",
+      "request_hash_changed": true,
+      "pass": true
+    },
+    {
+      "cell_id": "P16_T3",
+      "stable_fields_equal": true,
+      "stable_field_mismatches": [],
+      "observed_execution_config_changes": {
+        "sampling_mode": {
+          "before": "greedy_do_sample_false",
+          "after": "stochastic_temperature_0.2"
+        },
+        "do_sample": {
+          "before": false,
+          "after": true
+        },
+        "temperature": {
+          "before": 0,
+          "after": 0.2
+        }
+      },
+      "execution_config_change_matches_R22": true,
+      "old_request_sha256": "3ffcf71dace6ae5fdef2d3a4a15e6d694e9c98818d22d8bc5b7215dcfbbbf315",
+      "new_request_sha256": "3139f1c6749555dcfb6a7aa6f3d0f5d9b229a339ac0b703a4ecc0df67647da41",
+      "request_hash_changed": true,
+      "pass": true
+    }
+  ]
+}

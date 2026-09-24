@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="430" viewBox="0 0 820 430">
+<rect width="100%" height="100%" fill="white"/>
+<text x="410.0" y="28" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold">Main-run outcome distribution by arm</text>
+<line x1="65" y1="355.0" x2="765" y2="355.0" stroke="#dddddd"/>
+<text x="55" y="360.0" text-anchor="end" font-family="Arial" font-size="12">0</text>
+<line x1="65" y1="280.0" x2="765" y2="280.0" stroke="#dddddd"/>
+<text x="55" y="285.0" text-anchor="end" font-family="Arial" font-size="12">4</text>
+<line x1="65" y1="205.0" x2="765" y2="205.0" stroke="#dddddd"/>
+<text x="55" y="210.0" text-anchor="end" font-family="Arial" font-size="12">8</text>
+<line x1="65" y1="130.0" x2="765" y2="130.0" stroke="#dddddd"/>
+<text x="55" y="135.0" text-anchor="end" font-family="Arial" font-size="12">12</text>
+<line x1="65" y1="55.0" x2="765" y2="55.0" stroke="#dddddd"/>
+<text x="55" y="60.0" text-anchor="end" font-family="Arial" font-size="12">16</text>
+<rect x="68.0" y="317.5" width="22" height="37.5" fill="#4C78A8"/>
+<rect x="96.0" y="111.25" width="22" height="243.75" fill="#72B7B2"/>
+<rect x="124.0" y="355.0" width="22" height="0.0" fill="#F2CF5B"/>
+<rect x="152.0" y="355.0" width="22" height="0.0" fill="#F58518"/>
+<rect x="180.0" y="355.0" width="22" height="0.0" fill="#E45756"/>
+<text x="135.0" y="377" text-anchor="middle" font-family="Arial" font-size="13">S</text>
+<rect x="208.0" y="336.25" width="22" height="18.75" fill="#4C78A8"/>
+<rect x="236.0" y="92.5" width="22" height="262.5" fill="#72B7B2"/>
+<rect x="264.0" y="336.25" width="22" height="18.75" fill="#F2CF5B"/>
+<rect x="292.0" y="355.0" width="22" height="0.0" fill="#F58518"/>
+<rect x="320.0" y="355.0" width="22" height="0.0" fill="#E45756"/>
+<text x="275.0" y="377" text-anchor="middle" font-family="Arial" font-size="13">C0</text>
+<rect x="348.0" y="261.25" width="22" height="93.75" fill="#4C78A8"/>
+<rect x="376.0" y="167.5" width="22" height="187.5" fill="#72B7B2"/>
+<rect x="404.0" y="336.25" width="22" height="18.75" fill="#F2CF5B"/>
+<rect x="432.0" y="355.0" width="22" height="0.0" fill="#F58518"/>
+<rect x="460.0" y="355.0" width="22" height="0.0" fill="#E45756"/>
+<text x="415.0" y="377" text-anchor="middle" font-family="Arial" font-size="13">T1</text>
+<rect x="488.0" y="261.25" width="22" height="93.75" fill="#4C78A8"/>
+<rect x="516.0" y="148.75" width="22" height="206.25" fill="#72B7B2"/>
+<rect x="544.0" y="355.0" width="22" height="0.0" fill="#F2CF5B"/>
+<rect x="572.0" y="355.0" width="22" height="0.0" fill="#F58518"/>
+<rect x="600.0" y="355.0" width="22" height="0.0" fill="#E45756"/>
+<text x="555.0" y="377" text-anchor="middle" font-family="Arial" font-size="13">T2</text>
+<rect x="628.0" y="167.5" width="22" height="187.5" fill="#4C78A8"/>
+<rect x="656.0" y="242.5" width="22" height="112.5" fill="#72B7B2"/>
+<rect x="684.0" y="355.0" width="22" height="0.0" fill="#F2CF5B"/>
+<rect x="712.0" y="355.0" width="22" height="0.0" fill="#F58518"/>
+<rect x="740.0" y="355.0" width="22" height="0.0" fill="#E45756"/>
+<text x="695.0" y="377" text-anchor="middle" font-family="Arial" font-size="13">T3</text>
+<rect x="170" y="390" width="13" height="13" fill="#4C78A8"/>
+<text x="188" y="401" font-family="Arial" font-size="12">0%</text>
+<rect x="275" y="390" width="13" height="13" fill="#72B7B2"/>
+<text x="293" y="401" font-family="Arial" font-size="12">25%</text>
+<rect x="380" y="390" width="13" height="13" fill="#F2CF5B"/>
+<text x="398" y="401" font-family="Arial" font-size="12">50%</text>
+<rect x="485" y="390" width="13" height="13" fill="#F58518"/>
+<text x="503" y="401" font-family="Arial" font-size="12">75%</text>
+<rect x="590" y="390" width="13" height="13" fill="#E45756"/>
+<text x="608" y="401" font-family="Arial" font-size="12">100%</text>
+</svg>

@@ -10,15 +10,18 @@ sys.path.insert(0, str(PROJECT_ROOT / "02_code"))
 
 from prompt_assembler import (
     COMMON_SHOCK_PATH,
+    DEFAULT_PERSONA_TEMPLATE_VERSION,
     DEFAULT_OUTPUT_REQUIREMENT_VERSION,
     OUTCOME_QUESTION_PATH,
     OUTPUT_REQUIREMENT_PATH,
     OUTPUT_REQUIREMENT_PATHS,
     PERSONA_TEMPLATE_PATH,
+    PERSONA_TEMPLATE_PATHS,
     PROTOCOL_NAME_DECISION_PATH,
     PROTOCOL_NAME_PLACEHOLDER,
     TREATMENT_PATHS,
     assemble_prompt,
+    get_persona_template_path,
     get_output_requirement_path,
     load_final_protocol_name,
     read_text,
@@ -39,9 +42,10 @@ PERSONA_ROW = {
 def raw_assembled_template(
     condition_id: str,
     output_requirement_version: str = DEFAULT_OUTPUT_REQUIREMENT_VERSION,
+    persona_template_version: str = DEFAULT_PERSONA_TEMPLATE_VERSION,
 ) -> str:
     components = (
-        read_text(PERSONA_TEMPLATE_PATH),
+        read_text(get_persona_template_path(persona_template_version)),
         read_text(COMMON_SHOCK_PATH),
         read_text(TREATMENT_PATHS[condition_id]),
         read_text(OUTCOME_QUESTION_PATH),
@@ -118,4 +122,37 @@ def test_unknown_output_requirement_version_is_rejected() -> None:
             PERSONA_ROW,
             "S",
             output_requirement_version="v9.9",
+        )
+
+
+@pytest.mark.parametrize("version", tuple(PERSONA_TEMPLATE_PATHS))
+def test_assembly_selects_exact_persona_template_version(version: str) -> None:
+    raw_template = raw_assembled_template("C0", persona_template_version=version)
+    expected = raw_template.replace(
+        PROTOCOL_NAME_PLACEHOLDER, load_final_protocol_name()
+    )
+
+    actual = assemble_prompt(
+        PERSONA_ROW,
+        "C0",
+        persona_template_version=version,
+    )
+
+    assert actual == expected
+    assert actual.startswith(read_text(PERSONA_TEMPLATE_PATHS[version]))
+
+
+def test_default_assembly_remains_persona_v1_0_for_historical_callers() -> None:
+    assert PERSONA_TEMPLATE_PATH == PERSONA_TEMPLATE_PATHS["v1.0"]
+    assert assemble_prompt(PERSONA_ROW, "S") == assemble_prompt(
+        PERSONA_ROW, "S", persona_template_version="v1.0"
+    )
+
+
+def test_unknown_persona_template_version_is_rejected() -> None:
+    with pytest.raises(ValueError, match="Unknown persona template version"):
+        assemble_prompt(
+            PERSONA_ROW,
+            "S",
+            persona_template_version="v9.9",
         )

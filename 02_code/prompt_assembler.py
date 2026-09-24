@@ -17,9 +17,15 @@ UNRESOLVED_BRACKET_PLACEHOLDER_PATTERN = re.compile(
     r"\[[A-Za-z][A-Za-z0-9_]*\]"
 )
 
-PERSONA_TEMPLATE_PATH = (
-    PROMPTS_ROOT / "personas" / "persona_template_v1.0.txt"
-)
+PERSONA_TEMPLATE_PATHS = {
+    version: PROMPTS_ROOT / "personas" / f"persona_template_{version}.txt"
+    for version in ("v1.0", "v1.1")
+}
+DEFAULT_PERSONA_TEMPLATE_VERSION = "v1.0"
+# Backward-compatible alias for callers reproducing pre-v1.1 requests.
+PERSONA_TEMPLATE_PATH = PERSONA_TEMPLATE_PATHS[
+    DEFAULT_PERSONA_TEMPLATE_VERSION
+]
 COMMON_SHOCK_PATH = PROMPTS_ROOT / "common_shock" / "common_shock_v1.0.txt"
 TREATMENTS_ROOT = PROMPTS_ROOT / "treatments"
 OUTCOME_QUESTION_PATH = PROMPTS_ROOT / "outcome" / "outcome_question_v1.0.txt"
@@ -63,6 +69,17 @@ def get_output_requirement_path(version: str) -> Path:
         ) from error
 
 
+def get_persona_template_path(version: str) -> Path:
+    try:
+        return PERSONA_TEMPLATE_PATHS[version]
+    except KeyError as error:
+        allowed = ", ".join(PERSONA_TEMPLATE_PATHS)
+        raise ValueError(
+            f"Unknown persona template version {version!r}; "
+            f"expected one of: {allowed}"
+        ) from error
+
+
 def load_final_protocol_name(
     decision_path: Path = PROTOCOL_NAME_DECISION_PATH,
 ) -> str:
@@ -96,6 +113,7 @@ def assemble_prompt(
     persona_row: Mapping[str, str],
     condition_id: str,
     *,
+    persona_template_version: str = DEFAULT_PERSONA_TEMPLATE_VERSION,
     output_requirement_version: str = DEFAULT_OUTPUT_REQUIREMENT_VERSION,
 ) -> str:
     missing_columns = PERSONA_COLUMNS.difference(persona_row)
@@ -114,8 +132,11 @@ def assemble_prompt(
     output_requirement_path = get_output_requirement_path(
         output_requirement_version
     )
+    persona_template_path = get_persona_template_path(
+        persona_template_version
+    )
     components = (
-        read_text(PERSONA_TEMPLATE_PATH),
+        read_text(persona_template_path),
         read_text(COMMON_SHOCK_PATH),
         read_text(treatment_path),
         read_text(OUTCOME_QUESTION_PATH),
