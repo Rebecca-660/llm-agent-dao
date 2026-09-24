@@ -27,3 +27,6 @@ _tmp_report_writing_instructions.md
 /09_report/
 /10_handoff/
 /*.[mM][dD]
+
+# Publish the project entry point while keeping other root notes local
+!/README.md
